@@ -1,0 +1,25 @@
+<form [formGroup]="formValidator" (submit)="onSubmit()">
+    <label for="name" style="width: 10%;">Name:</label>
+    <input type="text" name="name" id="name" style="width: 45%;" formControlName="name">
+    <span *ngIf="formValidator.controls.name.touched">
+        <small *ngIf="formValidator.controls.name.errors?.required">This field cannot be empthy</small>
+        <small *ngIf="!formValidator.controls.name.errors?.required && formValidator.controls.name.errors?.minlength">Name must have at least two chars</small>
+    </span>
+    <br>
+    <label for="year" style="width: 10%;">Year:</label>
+    <input type="text" name="year" id="year" style="width: 45%;"  formControlName="year">
+    <br>
+    <label for="grapes" style="width: 10%;">Grapes:</label>
+    <input type="text" name="grapes" id="grapes" style="width: 45%;"  formControlName="grapes">
+    <br>
+    <label for="name" style="width: 10%;">Country:</label>
+    <input type="text" name="country" id="country" style="width: 45%;"  formControlName="country">
+    <br>
+    <label for="name" style="width: 10%;">Region:</label>
+    <input type="text" name="region"  id="region" style="width: 45%;"  formControlName="region">
+    <br>
+    <label for="description" style="width: 10%;">Description:</label>
+    <textarea name="desription" id="description" cols="30" rows="5" style="width: 45%;"  formControlName="description"></textarea>
+    <button type="submit" class="btn btn-primary" [disabled]="formValidator.invalid" >Submit</button>
+</form>
+

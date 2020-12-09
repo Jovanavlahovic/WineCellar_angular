@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="col">
+        <table style="width: 100%;" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Name <button class="btn" (click)="sendParams('name')"><i class="fa fa-sort" ></i></button>
+                    </th>
+                    <th>Year <button class="btn" (click)="sendParams('year')"><i class="fa fa-sort" ></i></button></th>
+                    <th>Grapes <button class="btn" (click)="sendParams('grapse')"><i class="fa fa-sort" ></i></button></th>
+                    <th>Country <button class="btn" (click)="sendParams('country')"><i class="fa fa-sort" ></i></button></th>
+                    <th >Region <button class="btn" (click)="sendParams('region')"><i class="fa fa-sort" ></i></button></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let wine of wines">
+                    <td>{{wine.name}}</td>
+                    <td>{{wine.year}}</td>
+                    <td>{{wine.grapes}}</td>
+                    <td>{{wine.region}}</td>
+                    <td><button class="btn" [routerLink]="['add', wine._id]"><a class="fa fa-edit"></a></button></td>
+                    <td><button class="btn" (click)="deleteWine(wine._id)"><a class="fa fa-remove"></a></button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
